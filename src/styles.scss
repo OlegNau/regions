@@ -1,1 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'app/libs/styles/normalize.scss';
+@use 'app/libs/styles/reset.scss';
+@use 'app/libs/styles/global.scss';
+

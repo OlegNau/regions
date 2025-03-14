@@ -1,0 +1,45 @@
+@use './../../variables' as vars;
+@use '@angular/material' as mat;
+
+:root {
+  display: block;
+  --mat-bottom-sheet-container-text-color: #{vars.$base-text-color};
+  --mat-bottom-sheet-container-background-color: #{vars.$main-background};
+}
+
+.mat-bottom-sheet-container {
+  color: vars.$base-text-color !important;
+  background-color: vars.$main-background !important;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.text {
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+.button {
+  width: 100%;
+  height: 46px;
+  border-radius: 10px;
+  background-color: vars.$light-backgound;
+  color: vars.$secondary-text-color;
+}
+
+.chip {
+  @include mat.chips-overrides((
+    container-shape-radius: 20px,
+    outline-color: vars.$dark-gray,
+    elevated-container-color: vars.$dark-gray,
+    label-text-color: vars.$base-text-color,
+    label-text-size: 13px,
+    container-height: 26px,
+    label-text-font: vars.$main-font,
+  ));
+}

@@ -1,0 +1,63 @@
+@use './variables' as vars;
+@use '@angular/material' as mat;
+
+:root {
+  display: block;
+  height: 100vh;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  width: 375px;
+  height: 100%;
+  padding: 0 16px 12px;
+  margin: 0 auto;
+  background-color: vars.$main-background;
+  box-sizing: border-box;
+}
+
+.loader, .error {
+  display: inline-block;
+  text-align: center;
+  height: 100%;
+  margin: 50px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 12px;
+}
+
+.text {
+  font-weight: 600;
+}
+
+.selectors-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-self: self-start;
+}
+
+.bottom-block {
+  margin-top: auto;
+}
+
+.prompt {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.button {
+  align-self: self-end;
+  width: 100%;
+  height: 46px;
+  border-radius: 10px;
+  background-color: vars.$accent-color;
+  color: vars.$base-text-color;
+}

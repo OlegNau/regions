@@ -1,0 +1,16 @@
+<div class="header">
+  <button mat-button (click)="close()">
+    <mat-icon class="icon">chevron_left</mat-icon>
+  </button>
+  <p class="title">Выбрать из&nbsp;списка</p>
+  <button mat-button class="complete-button" (click)="addRegions()">Готово</button>
+</div>
+<regions-ui-search class="search"></regions-ui-search>
+<mat-list #regions>
+@for (region of regionsList(); track region) {
+  <mat-list-item class="item">
+    <input class="visually-hidden checkbox" (click)="onRegionChange(region, $event)" type="checkbox" name="name" id="name-{{region.id}}">
+    <label for="name-{{region.id}}" class="name">{{region.name}}</label>
+  </mat-list-item>
+}
+</mat-list>

@@ -1,0 +1,7 @@
+<div class="wrapper">
+  <mat-icon class="icon">search</mat-icon>
+  <input type="text" class="input" matInput [formControl]="searchControl" placeholder="Поиск">
+</div>
+@if (this.searchControl.errors) {
+  <p class="error">Введите не менее 1 и не более 20 символов</p>
+}

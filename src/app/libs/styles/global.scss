@@ -1,0 +1,30 @@
+@use "../../variables.scss" as vars;
+@use "../../typography.scss" as typography;
+
+body {
+  @include typography.main-text;
+  color: vars.$base-text-color;
+  background-color: vars.$base-text-color;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

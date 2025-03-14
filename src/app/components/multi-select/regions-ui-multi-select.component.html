@@ -1,0 +1,16 @@
+@if (regions().length === 0) {
+  <div class="wrapper">
+    <p class="text">*Выберите не&nbsp;менее двух регионов</p>
+    <button mat-fab class="button" raised-button (click)="openBottomSheet()">Выбрать</button>
+  </div>
+} @else {
+  <mat-chip-set
+    class="example-chip"
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+>
+  @for (region of regions(); track region.name) {
+    <mat-chip class="chip">{{region.name}}</mat-chip>
+  }
+</mat-chip-set>
+}
