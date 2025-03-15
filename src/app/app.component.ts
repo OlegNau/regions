@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit} from '@angular/core';
 import { RegionsStore } from './stores/regions-ui-store';
 
 @Component({

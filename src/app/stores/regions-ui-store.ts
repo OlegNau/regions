@@ -3,10 +3,10 @@ import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { catchError, of, pipe, switchMap, tap } from 'rxjs';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { RegionsService } from '../services/regions.service';
-import { Regions } from '../interfaces/regions.interface';
+import { Region } from '../interfaces/region.interface';
 
 type RegionsState = {
-  regions: Regions[];
+  regions: Region[];
   isLoading: boolean;
   loadingError: boolean;
   singleRegionChecked: boolean;
@@ -40,10 +40,10 @@ export const RegionsStore = signalStore(
         })
       )
     ),
-    selectedRegion(selected: boolean): void {
+    selectedRegion(selected: boolean) {
       patchState(store, {singleRegionChecked: selected})
     },
-    selectedRegions(selected: boolean): void {
+    selectedRegions(selected: boolean) {
       patchState(store, {multiRegionChecked: selected})
     },
   }))

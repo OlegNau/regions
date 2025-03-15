@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, Input, OnInit, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
@@ -6,8 +6,7 @@ import { SearchComponent } from '../regions-ui-search/regions-ui-search.componen
 import { MatIconModule } from '@angular/material/icon';
 import { RegionsSingleSelectStore } from '../single-select/store/regions-ui-single-select.store';
 import { SEARCH_TOKEN } from 'src/app/tokens/search.token';
-import { Regions } from 'src/app/interfaces/regions.interface';
-import { RegionsStore } from 'src/app/stores/regions-ui-store';
+import { Region } from 'src/app/interfaces/region.interface';
 
 @Component({
   selector: 'regions-ui-single-select-sheet',
@@ -21,13 +20,13 @@ import { RegionsStore } from 'src/app/stores/regions-ui-store';
 export class SingleSelectSheetComponent {
   private store = inject(RegionsSingleSelectStore);
 
-  selectedRegion: Regions | null = null;
+  selectedRegion: Region | null = null;
 
   regionsList = computed(() => this.store.filtredRegions());
 
   private _bottomSheetRef = inject<MatBottomSheetRef<SingleSelectSheetComponent>>(MatBottomSheetRef);
 
-  onRegionChange(region: Regions, event: Event): void {
+  onRegionChange(region: Region, event: Event): void {
     const input = event.target as HTMLInputElement;
     const isChecked = input.checked;
 

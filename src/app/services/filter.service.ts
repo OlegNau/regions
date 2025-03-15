@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
-import { Regions } from "../interfaces/regions.interface";
+import { Region } from "../interfaces/region.interface";
 
 @Injectable({
   providedIn: 'root',
 })
 export class FilterService {
-  filterRegions(searchValue: string, regionsList: Regions[]): readonly Regions[] {
+  filterRegions(searchValue: string, regionsList: Region[]): readonly Region[] {
     if (searchValue === '') {
       return regionsList;
     }

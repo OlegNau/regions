@@ -1,13 +1,13 @@
 import { inject } from '@angular/core';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
-import { Regions } from 'src/app/interfaces/regions.interface';
+import { Region } from 'src/app/interfaces/region.interface';
 import { FilterService } from 'src/app/services/filter.service';
 import { RegionsStore } from 'src/app/stores/regions-ui-store';
 
 type RegionsMultiSelectState = {
   readonly filter: string;
-  readonly filtredRegions: readonly Regions[];
-  readonly selectedRegions: Regions[];
+  readonly filtredRegions: readonly Region[];
+  readonly selectedRegions: Region[];
 };
 
 const initialState: RegionsMultiSelectState = {
@@ -47,7 +47,7 @@ export const RegionsMultiSelectStore = signalStore(
           filtredRegions: regions,
         });
       },
-      setSelectedRegions(selected: Regions[]): void {
+      setSelectedRegions(selected: Region[]): void {
         patchState(store, {selectedRegions: selected})
         regionsStore.selectedRegions(true);
       }

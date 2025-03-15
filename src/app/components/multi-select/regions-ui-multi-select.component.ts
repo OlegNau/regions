@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, EventEmitter, Inject, inject, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,17 +24,9 @@ import { MultiSelectSheetComponent } from '../regions-ui-multi-select-sheet/regi
   standalone: true,
 })
 export class MultiSelectComponent {
-  @Output() selectRegions = new EventEmitter<boolean>()
-
   readonly store = inject(RegionsMultiSelectStore);
 
   regionsChecked = computed(() => this.store.selectedRegions());
-
-  constructor() {
-      effect(() => {
-        this.selectRegions.emit(this.regionsChecked().length !== 0);
-      });
-    }
 
   private _bottomSheet = inject(MatBottomSheet);
 

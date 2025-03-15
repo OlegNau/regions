@@ -5,7 +5,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { SearchComponent } from '../regions-ui-search/regions-ui-search.component';
 import { MatIconModule } from '@angular/material/icon';
 import { SEARCH_TOKEN } from 'src/app/tokens/search.token';
-import { Regions } from 'src/app/interfaces/regions.interface';
+import { Region } from 'src/app/interfaces/region.interface';
 import { RegionsMultiSelectStore } from '../multi-select/store/regions-ui-multi-select.store';
 
 @Component({
@@ -18,15 +18,16 @@ import { RegionsMultiSelectStore } from '../multi-select/store/regions-ui-multi-
   standalone: true,
 })
 export class MultiSelectSheetComponent {
+
   private store = inject(RegionsMultiSelectStore);
 
-  selectedRegions: Regions[] = [];
+  selectedRegions: Region[] = [];
 
   regionsList = computed(() => this.store.filtredRegions());
 
   private _bottomSheetRef = inject<MatBottomSheetRef<MultiSelectSheetComponent>>(MatBottomSheetRef);
 
-  onRegionChange(region: Regions, event: Event): void {
+  onRegionChange(region: Region, event: Event): void {
     const input = event.target as HTMLInputElement;
     const isChecked = input.checked;
 

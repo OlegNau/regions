@@ -1,9 +1,9 @@
-@if (regionChecked() !== null) {
-  @let region = regionChecked() ?? {name: ""};
-  <mat-chip class="chip">{{ region.name }}</mat-chip>
-} @else {
-  <div class="wrapper">
-    <p class="text">*Выберите один регион из&nbsp;списка</p>
-    <button mat-fab class="button" raised-button (click)="openBottomSheet()">Выбрать</button>
-  </div>
-}
+<div class="wrapper">
+  <p class="text">*Выберите один регион из&nbsp;списка</p>
+  @if (regionChecked() !== null) {
+    @let region = regionChecked() ?? {name: ""};
+    <mat-chip class="chip">{{ region.name }}</mat-chip>
+  } @else {
+      <button mat-fab class="button" raised-button (click)="openBottomSheet()">Выбрать</button>
+  }
+</div>
