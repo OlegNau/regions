@@ -28,12 +28,11 @@ export class MultiSelectComponent {
 
   readonly store = inject(RegionsMultiSelectStore);
 
-  regions = computed(() => this.store.selectedRegions());
+  regionsChecked = computed(() => this.store.selectedRegions());
 
   constructor() {
       effect(() => {
-        const hasRegion = this.regions().length !== 0;
-        this.selectRegions.emit(hasRegion);
+        this.selectRegions.emit(this.regionsChecked().length !== 0);
       });
     }
 

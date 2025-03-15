@@ -9,15 +9,15 @@
         <p class="text">Добавить отчет</p>
       </div>
       <div class="selectors-wrapper">
-        <regions-ui-multi-select (selectRegion)="onRegionSelected(true)"></regions-ui-multi-select>
-        <regions-ui-single-select (selectRegions)="onRegionsSelected(true)"></regions-ui-single-select>
+        <regions-ui-multi-select></regions-ui-multi-select>
+        <regions-ui-single-select></regions-ui-single-select>
       </div>
     }
   }
   <div class="bottom-block">
-    @if (!singleRegionChecked() && !multiRegionChecked()) {
+    @if (!singleRegionChecked() || !multiRegionChecked()) {
       <p class="prompt">Нужно заполнить поля, отмеченные *</p>
     }
-    <button mat-fab class="button" [disabled]="singleRegionChecked() && multiRegionChecked()" (click)="send()">Добавить отчет</button>
+    <button class="button" [disabled]="!singleRegionChecked() || !multiRegionChecked()" (click)="send()">Добавить отчет</button>
   </div>
 </div>

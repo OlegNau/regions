@@ -9,12 +9,16 @@ type RegionsState = {
   regions: Regions[];
   isLoading: boolean;
   loadingError: boolean;
+  singleRegionChecked: boolean;
+  multiRegionChecked: boolean;
 };
 
 const initialState: RegionsState = {
   regions: [],
   isLoading: false,
   loadingError: false,
+  singleRegionChecked: false,
+  multiRegionChecked: false,
 };
 
 export const RegionsStore = signalStore(
@@ -36,5 +40,11 @@ export const RegionsStore = signalStore(
         })
       )
     ),
+    selectedRegion(selected: boolean): void {
+      patchState(store, {singleRegionChecked: selected})
+    },
+    selectedRegions(selected: boolean): void {
+      patchState(store, {multiRegionChecked: selected})
+    },
   }))
 );

@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RegionsSingleSelectStore } from '../single-select/store/regions-ui-single-select.store';
 import { SEARCH_TOKEN } from 'src/app/tokens/search.token';
 import { Regions } from 'src/app/interfaces/regions.interface';
+import { RegionsStore } from 'src/app/stores/regions-ui-store';
 
 @Component({
   selector: 'regions-ui-single-select-sheet',

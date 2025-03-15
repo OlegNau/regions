@@ -10,8 +10,8 @@ import { RegionsStore } from './stores/regions-ui-store';
 export class AppComponent implements OnInit {
   private store = inject(RegionsStore);
 
-  singleRegionChecked = signal(false);
-  multiRegionChecked = signal(false);
+  singleRegionChecked = computed(() => this.store.singleRegionChecked());
+  multiRegionChecked = computed(() => this.store.multiRegionChecked());
 
   isLoading = computed(() => this.store.isLoading());
   loadingError = computed(() => this.store.loadingError());
@@ -22,13 +22,5 @@ export class AppComponent implements OnInit {
 
   send(): void {
     console.log("Отчеты отправлены")
-  }
-
-  onRegionSelected(selected: boolean) {
-    this.singleRegionChecked.set(selected);
-  }
-
-  onRegionsSelected(selected: boolean): void {
-    this.multiRegionChecked.set(selected);
   }
 }

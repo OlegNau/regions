@@ -61,3 +61,8 @@
   background-color: vars.$accent-color;
   color: vars.$base-text-color;
 }
+
+.button:disabled {
+  opacity: 0.3;
+  color: vars.$base-text-color;
+}

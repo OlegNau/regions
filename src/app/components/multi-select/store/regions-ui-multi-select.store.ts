@@ -49,6 +49,7 @@ export const RegionsMultiSelectStore = signalStore(
       },
       setSelectedRegions(selected: Regions[]): void {
         patchState(store, {selectedRegions: selected})
+        regionsStore.selectedRegions(true);
       }
     };
   })

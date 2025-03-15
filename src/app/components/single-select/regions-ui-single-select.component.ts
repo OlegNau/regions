@@ -22,18 +22,9 @@ import { MatChipsModule } from '@angular/material/chips';
   standalone: true,
 })
 export class SingleSelectComponent {
-  @Output() selectRegion = new EventEmitter<boolean>()
-
   readonly store = inject(RegionsSingleSelectStore);
 
   regionChecked = computed(() =>  this.store.selectedRegion());
-
-  constructor() {
-    effect((): void => {
-      const hasRegion = this.regionChecked() !== null;
-      this.selectRegion.emit(hasRegion);
-    });
-  }
 
   private _bottomSheet = inject(MatBottomSheet);
 
